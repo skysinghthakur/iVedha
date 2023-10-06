@@ -1,0 +1,58 @@
+---
+- name: Perform Actions Based on 'action' Variable
+  hosts: all
+  become: yes  # Use 'sudo' for privilege escalation
+
+  tasks:
+    - name: Verify and Install a Service (httpd as an example)
+      block:
+        - name: Check if httpd is installed
+          command: "rpm -q httpd"  # Check if httpd is installed
+          register: httpd_installed
+          ignore_errors: yes  # Ignore errors if the package is not installed
+
+        - name: Install httpd if not installed
+          package:
+            name: httpd
+            state: present
+          when: httpd_installed.rc != 0  # Install only if not already installed
+          register: install_result
+
+        - name: Display installation result
+          debug:
+            var: install_result
+          when: install_result is defined
+
+      when: action == "verify_install"
+
+    - name: Check Disk Space and Send Alert
+      block:
+        - name: Get disk usage
+          shell: "df -h | awk '0+$5 >= 80 {print}'"
+          register: disk_usage
+          changed_when: false  # Do not consider this task as a change
+
+        - name: Send email alert
+          mail:
+            host: smtp.gmail.com
+            port: 25
+            subject: "Disk Space Alert on {{ inventory_hostname }}"
+            body: "{{ disk_usage.stdout }}"
+            to: skysinghthakur@gmail.com
+          when: disk_usage.stdout_lines | length > 0
+
+      when: action == "check-disk"
+
+    - name: Check Application Status and Services
+      block:
+        - name: Perform GET request to check application status
+          uri:
+            url: "http://localhost:8080/healthcheck"
+            method: GET
+          register: app_status
+
+        - name: Display application status
+          debug:
+            var: app_status.json
+
+      when: action == "check-status"

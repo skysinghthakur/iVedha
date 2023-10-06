@@ -1,0 +1,8 @@
+[httpd]
+host1 ansible_ssh_user=guest
+
+[rabbitmq]
+host2 ansible_ssh_user=guest
+
+[postgresql]
+host3 ansible_ssh_user=guest
