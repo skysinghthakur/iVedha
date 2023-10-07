@@ -1,0 +1,73 @@
+Python 2 and Python 3 are two major versions of the Python programming language. Python 3 was introduced as a significant update to Python 2 with various changes and improvements.
+1. Print Statement vs. Print Function:
+   - Python 2 uses the `print` statement to print output to the console. For example: `print "Hello, World!"`.
+   - Python 3 uses the `print()` function for output. For example: `print("Hello, World!")`.
+2. Division:
+   - In Python 2, division between two integers returns an integer result. For example, `5 / 2` would result in `2`.
+   - In Python 3, division between two integers returns a floating-point result. For example, `5 / 2` would result in `2.5`.
+3. Unicode:
+   - In Python 2, strings are represented as ASCII by default. To work with Unicode strings, need to use the `u` prefix, like `u"Hello"`.
+   - Python 3 treats all strings as Unicode by default. Use byte strings by adding a `b` prefix, like `b"Hello"`, when needed.
+4. 'xrange' vs. 'range':
+   - In Python 2, there are two functions for creating sequences of numbers: `range()` and `xrange()`. `xrange()` is more memory-efficient for large ranges.
+   - In Python 3, `xrange()` has been removed, and `range()` behaves like Python 2's `xrange()`.
+5. 'input' vs. 'raw_input':
+   - In Python 2, `input()` reads user input as a Python expression.
+   - In Python 3, `raw_input()` from Python 2 is removed, and `input()` behaves like `raw_input()` in Python 2.
+6. 'zip' Function:
+   - In Python 2, `zip()` returns a list.
+   - In Python 3, `zip()` returns an iterator, which is more memory-efficient for large data sets.
+7. 'dict.keys()', 'dict.values()', and 'dict.items()' Methods:
+   - In Python 2, these methods return lists.
+   - In Python 3, these methods return views, which are more memory-efficient and automatically reflect changes in the dictionary.
+These are some of the significant differences between Python 2 and Python 3.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Integer: Represent integer values (without floating point). If we give floating point value to integer it actumatically trim the decimal part
+String: Sequence of character, can be represented in '' or "" or '''''' or """"""
+Lists: Python Lists are mutable (modify, add, delete elements). We can store heterogenous values as well.
+Dictonary: If store the value in Key:Value format. Key must be unique else it will overwrite the previous value.
+Sets: It contains the unique values only, if the number is dubplicated it discard them. 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Variables provide a way to label data in memory. If we define a variable it get stored in some memory.
+We access the memory using variables assigned. We use assignment operator to assign data to variable.
+
+Data assignment is the process of associating a value with a variable.
+Python uses dynamic typing. (Not required to give data type while assigning value)
+
+Variable scope defines where in the code a variable can be accessed or modified.
+Local Scope (only within the function it is declared) and Global Scope (these can be accessed by other functions as well)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Git is a distributed version control system used for tracking changes in source code during software development.
+1. git init:
+   - Initializes a new Git repository in the current directory. It creates a hidden `.git` directory to store version control information.
+2. git clone <repository_url>:
+   - Clones an existing Git repository from a remote server to local machine.
+3. git add <file>:
+   - Stages changes in a file to be committed.
+4. git status:
+   - Shows the current status of working directory and staged changes. It provides information about untracked, modified, and staged files.
+5. git commit -m "Commit message":
+   - Commits the staged changes to the Git history. The `-m` flag is used to provide a brief commit message that describes the changes.
+6. git pull:
+   - Fetches changes from the remote repository and merges them into current branch. It's used to update local repository with remote changes.
+7. git push:
+   - Pushes local commits to the remote repository. It's used to share changes with others on the remote server.
+8. git branch:
+   - Lists all branches in the repository.
+9. git checkout <branch_name>:
+   - Switches to a different branch.
+10. git merge <branch_name>:
+    - Combines changes from one branch into another.
+11. git log:
+    - Shows a log of commits in the current branch, including commit messages, author, date, and commit hashes.
+12. git fetch:
+    - Fetches changes from the remote repository without merging them into local branch. It updates local copy of the remote branch.
